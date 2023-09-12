@@ -23,6 +23,8 @@ interface SocialShareDropdownProps {
   imageId: string;
 }
 
+const URL = process.env.NEXT_PUBLIC_BASE_URL;
+
 const SocialShareDropdown = ({ imageId }: SocialShareDropdownProps) => {
   return (
     <DropdownMenu>
@@ -39,7 +41,7 @@ const SocialShareDropdown = ({ imageId }: SocialShareDropdownProps) => {
         <DropdownMenuItem className="text-xs flex items-center gap-2 font-normal cursor-pointer w-full px-2 py-3 transition-all">
           <FacebookShareButton
             style={{ display: "flex", alignItems: "center", width: "100%" }}
-            url="https://lucide.dev/icons/share-2"
+            url={`${URL}/images/${imageId}`}
           >
             <FacebookIcon round className="mr-2" size={25} />
             Facebook
@@ -63,7 +65,7 @@ const SocialShareDropdown = ({ imageId }: SocialShareDropdownProps) => {
           <PinterestShareButton
             style={{ display: "flex", alignItems: "center", width: "100%" }}
             media=""
-            url="https://lucide.dev/icons/share-2"
+            url={`${URL}/images/${imageId}`}
           >
             <PinterestIcon round className="mr-2" size={25} />
             Pinterest
@@ -74,7 +76,7 @@ const SocialShareDropdown = ({ imageId }: SocialShareDropdownProps) => {
         <DropdownMenuItem className="text-xs flex items-center gap-2 font-normal cursor-pointer w-full px-2 py-3 transition-all">
           <LinkedinShareButton
             style={{ display: "flex", alignItems: "center", width: "100%" }}
-            url="https://lucide.dev/icons/share-2"
+            url={`${URL}/images/${imageId}`}
           >
             <LinkedinIcon round className="mr-2" size={25} />
             Linkedin

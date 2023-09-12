@@ -61,8 +61,6 @@ const ImageDetailPage = ({ params }: ImageDetailPageProps) => {
     return <Loading />;
   }
 
-  console.log(data);
-
   return (
     <section className="h-full flex flex-col justify-between md:p-6 gap-6 container">
       <div className="flex items-center justify-between">
@@ -147,7 +145,7 @@ const ImageDetailPage = ({ params }: ImageDetailPageProps) => {
             <DeleteButton imageId={data.id} />
           )}
 
-          <SocialShareDropdown imageId={``} />
+          <SocialShareDropdown imageId={data.id} />
 
           {data.userId !== session?.user.id && <ReportDropdown imageId={``} />}
         </div>

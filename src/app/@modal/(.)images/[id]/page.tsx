@@ -186,7 +186,7 @@ const ImageModal = ({ params }: ImageModalPageProps) => {
                 <DeleteButton imageId={data.id} />
               )}
 
-              <SocialShareDropdown imageId={``} />
+              <SocialShareDropdown imageId={data.id} />
 
               {data.userId !== session?.user.id && (
                 <ReportDropdown imageId={``} />
