@@ -97,7 +97,7 @@ const ImageModal = ({ params }: ImageModalPageProps) => {
             <div
               onClick={(e) => {
                 e.stopPropagation();
-                router.push(`/profile/${data.userId}`);
+                router.replace(`/profile/${data.userId}`);
                 window.location.reload();
                 return null;
               }}
