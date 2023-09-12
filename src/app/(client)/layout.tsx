@@ -12,15 +12,9 @@ export default function GroupLayout({
 }) {
   return (
     <>
-      <QueryProvider>
-        <AuthProvider>
-          <LayoutProvider>{children}</LayoutProvider>
+      <>{modal}</>
 
-          {modal}
-        </AuthProvider>
-      </QueryProvider>
-
-      <Toaster />
+      {children}
     </>
   );
 }

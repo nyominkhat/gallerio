@@ -82,14 +82,14 @@ const ImageModal = ({ params }: ImageModalPageProps) => {
   return (
     <article
       onClick={handleOnOpenChange}
-      className={`fixed cursor-zoom-out bg-foreground/20 text-black inset-0 z-[50] ${
+      className={`fixed cursor-zoom-out bg-foreground/20 text-black inset-0 z-[55555] ${
         viewImage ? "overflow-hidden" : "overflow-auto"
       }`}
     >
       {/* modal box */}
       <div
         onClick={(e) => e.stopPropagation()}
-        className="w-full lg:px-40 lg:pt-5 lg:pb-24 relative pointer-events-none cursor-auto min-h-full flex flex-col justify-between"
+        className="w-full lg:px-40 lg:pt-20 lg:pb-24 relative pointer-events-none cursor-auto min-h-full flex flex-col justify-between"
       >
         <div className="pointer-events-auto w-full mx-auto my-auto bg-white rounded-sm space-y-10">
           {/* header */}
@@ -98,8 +98,8 @@ const ImageModal = ({ params }: ImageModalPageProps) => {
               onClick={(e) => {
                 e.stopPropagation();
                 router.push(`/profile/${data.userId}`);
-                // window.location.reload();
-                // return null;
+                window.location.reload();
+                return null;
               }}
               className="cursor-pointer flex items-center gap-2 transition-all duration-500"
             >

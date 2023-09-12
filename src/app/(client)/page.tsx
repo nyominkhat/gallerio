@@ -8,7 +8,6 @@ import ImageSection from "@/components/ImageSection";
 
 import useImages from "@/hooks/image/useImages";
 import useSearch from "@/hooks/useSearch";
-import Loading from "@/components/Loading";
 
 const Home = () => {
   const { data: session } = useSession();
