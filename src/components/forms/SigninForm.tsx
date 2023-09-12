@@ -136,7 +136,7 @@ export const SigninForm = () => {
             className="flex items-center w-full gap-2"
             onClick={() =>
               signIn("github", {
-                redirect: true,
+                redirect: false,
               })
             }
           >
