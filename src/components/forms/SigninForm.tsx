@@ -69,9 +69,9 @@ export const SigninForm = () => {
     <Form {...form}>
       <form
         onSubmit={form.handleSubmit(onSubmit)}
-        className="flex flex-col items-center justify-center space-y-8 lg:w-1/2 md:w-2/3"
+        className="flex flex-col items-center justify-center space-y-8 lg:w-1/2 md:w-2/3 w-full px-4"
       >
-        <h2 className="text-3xl font-semibold lg:w-1/2 md:w-2/3">
+        <h2 className="text-3xl font-semibold lg:w-1/2 md:w-2/3 w-full">
           Hello ! Welcome Back
         </h2>
 
@@ -80,7 +80,7 @@ export const SigninForm = () => {
             control={form.control}
             name="email"
             render={() => (
-              <FormItem className=" lg:w-1/2 md:w-2/3">
+              <FormItem className=" lg:w-1/2 md:w-2/3 w-full">
                 <FormLabel className="cursor-pointer">Email</FormLabel>
                 <FormControl>
                   <Input placeholder="Email" {...form.register("email")} />
@@ -94,7 +94,7 @@ export const SigninForm = () => {
             control={form.control}
             name="password"
             render={() => (
-              <FormItem className=" lg:w-1/2 md:w-2/3">
+              <FormItem className=" lg:w-1/2 md:w-2/3 w-full">
                 <FormLabel className="cursor-pointer">Password</FormLabel>
                 <FormControl>
                   <Input
@@ -109,14 +109,14 @@ export const SigninForm = () => {
           />
         </div>
 
-        <div className=" lg:w-1/2 md:w-2/3">
+        <div className=" lg:w-1/2 md:w-2/3 w-full">
           <Button className="w-full" type="submit">
             {loading ? <Loader2 className="w-4 h-4 mr-2 animate-spin" /> : null}
             {loading ? "Logging" : "Login"}
           </Button>
         </div>
 
-        <div className="flex items-center gap-2 text-sm lg:w-1/2 md:w-2/3">
+        <div className="flex items-center gap-2 text-sm lg:w-1/2 md:w-2/3 w-full">
           <p>Don't have an account?</p>
           <Link
             className="text-blue-800 underline transition-all hover:text-blue-600"
@@ -126,9 +126,9 @@ export const SigninForm = () => {
           </Link>
         </div>
 
-        <Separator className=" lg:w-1/2 md:w-2/3" />
+        <Separator className=" lg:w-1/2 md:w-2/3 w-full" />
 
-        <div className="space-y-2 lg:w-1/2 md:w-2/3">
+        <div className="space-y-2 lg:w-1/2 md:w-2/3 w-full">
           <p className="w-full text-center">or</p>
 
           <Button

@@ -83,9 +83,9 @@ const RegisterForm = () => {
     <Form {...form}>
       <form
         onSubmit={form.handleSubmit(onSubmit)}
-        className="flex flex-col items-center justify-center space-y-8 lg:w-1/2 md:w-2/3"
+        className="flex flex-col items-center justify-center space-y-8 lg:w-1/2 md:w-2/3 w-full px-4"
       >
-        <h2 className="text-3xl font-semibold lg:w-1/2 md:w-2/3">
+        <h2 className="text-3xl font-semibold lg:w-1/2 md:w-2/3 w-full">
           Register here
         </h2>
 
@@ -94,7 +94,7 @@ const RegisterForm = () => {
             control={form.control}
             name="name"
             render={() => (
-              <FormItem className=" lg:w-1/2 md:w-2/3">
+              <FormItem className="lg:w-1/2 md:w-2/3 w-full">
                 <FormLabel className="cursor-pointer">Name</FormLabel>
                 <FormControl>
                   <Input placeholder="Name" {...form.register("name")} />
@@ -108,7 +108,7 @@ const RegisterForm = () => {
             control={form.control}
             name="email"
             render={() => (
-              <FormItem className=" lg:w-1/2 md:w-2/3">
+              <FormItem className="lg:w-1/2 md:w-2/3 w-full">
                 <FormLabel className="cursor-pointer">Email</FormLabel>
                 <FormControl>
                   <Input placeholder="Email" {...form.register("email")} />
@@ -122,7 +122,7 @@ const RegisterForm = () => {
             control={form.control}
             name="password"
             render={() => (
-              <FormItem className=" lg:w-1/2 md:w-2/3">
+              <FormItem className="lg:w-1/2 md:w-2/3 w-full">
                 <FormLabel className="cursor-pointer">Password</FormLabel>
                 <FormControl>
                   <Input
@@ -140,7 +140,7 @@ const RegisterForm = () => {
             control={form.control}
             name="confirmPassword"
             render={() => (
-              <FormItem className="lg:w-1/2 md:w-2/3">
+              <FormItem className="lg:w-1/2 md:w-2/3 w-full">
                 <FormLabel className="cursor-pointer">
                   Confirm password
                 </FormLabel>
@@ -156,7 +156,7 @@ const RegisterForm = () => {
             )}
           />
 
-          <div className="space-y-2 lg:w-1/2 md:w-2/3">
+          <div className="space-y-2 lg:w-1/2 md:w-2/3 w-full">
             <Button type="submit" className="flex items-center w-full gap-2">
               {isLoading ? (
                 <Loader2 className="w-4 h-4 mr-2 animate-spin" />
@@ -165,7 +165,7 @@ const RegisterForm = () => {
             </Button>
           </div>
 
-          <div className="flex items-center gap-2 text-sm lg:w-1/2 md:w-2/3">
+          <div className="flex items-center gap-2 text-sm lg:w-1/2 md:w-2/3 w-full">
             <p>Already have an account?</p>
             <Link
               className="text-blue-800 underline transition-all hover:text-blue-600"

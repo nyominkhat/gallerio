@@ -9,6 +9,7 @@ import SearchInput from "./Search";
 
 import useUploadModal from "@/hooks/modal/useUploadModal";
 import useSearch from "@/hooks/useSearch";
+import { LogIn } from "lucide-react";
 
 const Navbar = () => {
   const { data: session } = useSession();
@@ -55,7 +56,10 @@ const Navbar = () => {
             </div>
           ) : (
             <Link href={"/signin"}>
-              <Button variant={"outline"}>Sign in</Button>
+              <Button className="flex items-center gap-1" variant={"outline"}>
+                <LogIn size={15} />
+                <span className=" md:block hidden">Sign in</span>
+              </Button>
             </Link>
           )}
         </div>
