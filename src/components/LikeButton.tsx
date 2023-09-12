@@ -49,7 +49,6 @@ const LikeButton = ({ imageId, css, data, refetch }: LikeButtonProps) => {
       });
     } else {
       router.push("/signin");
-      window.location.reload();
       return null;
     }
   };

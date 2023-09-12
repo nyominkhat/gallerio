@@ -98,8 +98,8 @@ const ImageModal = ({ params }: ImageModalPageProps) => {
               onClick={(e) => {
                 e.stopPropagation();
                 router.push(`/profile/${data.userId}`);
-                window.location.reload();
-                return null;
+                // window.location.reload();
+                // return null;
               }}
               className="cursor-pointer flex items-center gap-2 transition-all duration-500"
             >
