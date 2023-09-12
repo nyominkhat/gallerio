@@ -19,7 +19,7 @@ const FullScreenImage = ({
         e.stopPropagation();
         setViewImage(false);
       }}
-      className="w-screen h-screen cursor-zoom-out overflow-y-auto overflow-x-hidden fixed top-0 left-0 z-50 md:flex hidden"
+      className="w-screen h-screen cursor-zoom-out overflow-y-auto overflow-x-hidden fixed top-0 left-0 z-50 md:block hidden"
     >
       <img
         onClick={() => {
