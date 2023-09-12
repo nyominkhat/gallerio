@@ -89,7 +89,7 @@ const ImageModal = ({ params }: ImageModalPageProps) => {
       {/* modal box */}
       <div
         onClick={(e) => e.stopPropagation()}
-        className="w-full lg:px-40 lg:pt-20 lg:pb-24 relative pointer-events-none cursor-auto min-h-full flex flex-col justify-between"
+        className="w-full lg:px-40 lg:pt-5 lg:pb-24 relative pointer-events-none cursor-auto min-h-full flex flex-col justify-between"
       >
         <div className="pointer-events-auto w-full mx-auto my-auto bg-white rounded-sm space-y-10">
           {/* header */}
