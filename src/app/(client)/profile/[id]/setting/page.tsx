@@ -1,7 +1,8 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { useSession } from "next-auth/react";
+import { Loader2 } from "lucide-react";
+import { useParams } from "next/navigation";
 
 import Loading from "@/components/Loading";
 import {
@@ -14,18 +15,18 @@ import {
 } from "@/components/ui/card";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import ImageUploadButton from "@/components/upload/ImageUploadButton";
-
-import useUser from "@/hooks/user/useUser";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { useParams } from "next/navigation";
+import { useToast } from "@/components/ui/use-toast";
+
+import useUser from "@/hooks/user/useUser";
 import useEditUser from "@/hooks/user/useEditUser";
-import { Loader2 } from "lucide-react";
 
 const Setting = () => {
   const params = useParams();
   const [imageSrc, setImageSrc] = useState("");
   const [name, setName] = useState("");
+  const { toast } = useToast();
 
   const { data, isLoading, refetch } = useUser({ userId: params.id as string });
 
@@ -48,8 +49,11 @@ const Setting = () => {
   useEffect(() => {
     if (isSuccess) {
       refetch();
+      toast({
+        title: "Save profile!",
+      });
     }
-  }, [isSuccess, refetch]);
+  }, [isSuccess, refetch, toast]);
 
   if (isLoading) {
     return <Loading />;
@@ -88,15 +92,11 @@ const Setting = () => {
           </div>
         </CardContent>
         <CardFooter className="flex justify-between">
-          <Button
-            className="flex "
-            onClick={onSubmit}
-            variant={"outline"}
-          >
+          <Button className="flex " onClick={onSubmit} variant={"outline"}>
             {mutationIsLoading ? (
               <Loader2 className="w-4 h-4 mr-2 animate-spin" />
             ) : null}
-            Edit
+            Save
           </Button>
         </CardFooter>
       </Card>
