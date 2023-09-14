@@ -9,6 +9,7 @@ import {
   // FacebookMessengerShareButton,
   // FacebookMessengerIcon,
 } from "next-share";
+import { Share2 } from "lucide-react";
 
 import {
   DropdownMenu,
@@ -17,7 +18,6 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { Button } from "./ui/button";
-import { Share2 } from "lucide-react";
 
 interface SocialShareDropdownProps {
   imageId: string;
@@ -36,7 +36,7 @@ const SocialShareDropdown = ({ imageId }: SocialShareDropdownProps) => {
           <Share2 size={18} /> Share
         </Button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent className="w-40">
+      <DropdownMenuContent className="w-40 z-[66666]">
         {/* Facebook */}
         <DropdownMenuItem className="text-xs flex items-center gap-2 font-normal cursor-pointer w-full px-2 py-3 transition-all">
           <FacebookShareButton
