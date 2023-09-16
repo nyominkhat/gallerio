@@ -154,17 +154,19 @@ const ProfileLayoutProvider = ({ children, userId }: LayoutProps) => {
             Likes
           </Link>
 
-          <Link
-            className={`flex text-sm items-center gap-1 text-slate-600 hover:text-slate-900 transition-all ${
-              currentpath === `/profile/${userId}/setting`
-                ? "text-slate-900"
-                : ""
-            }`}
-            href={`/profile/${userId}/setting`}
-          >
-            <UserCog2 size={15} />
-            Edit profile
-          </Link>
+          {data.id === session?.user.id && (
+            <Link
+              className={`flex text-sm items-center gap-1 text-slate-600 hover:text-slate-900 transition-all ${
+                currentpath === `/profile/${userId}/setting`
+                  ? "text-slate-900"
+                  : ""
+              }`}
+              href={`/profile/${userId}/setting`}
+            >
+              <UserCog2 size={15} />
+              Edit profile
+            </Link>
+          )}
         </div>
       </div>
 
