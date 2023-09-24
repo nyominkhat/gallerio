@@ -95,7 +95,11 @@ const ImageCard = ({
         <Button
           variant={"secondary"}
           className="absolute right-4 bottom-4 group-hover:opacity-100 opacity-0 transition-all duration-500"
-          onClick={() => saveImage(data.url, data.tag)}
+          onClick={(e) => {
+            e.stopPropagation();
+
+            saveImage(data.url, data.tag);
+          }}
         >
           <Download />
         </Button>

@@ -21,7 +21,7 @@ const ReportDropdown = ({ imageId }: ReportDropdownProps) => {
           <MoreHorizontal />
         </Button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent className="w-40">
+      <DropdownMenuContent className="w-40 z-[66666]">
         <DropdownMenuItem
           onClick={() => {
             // router.push("/setting");
