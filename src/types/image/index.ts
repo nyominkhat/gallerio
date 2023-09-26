@@ -47,7 +47,12 @@ export interface imageTypes {
 }
 
 export interface likeCreateTypes {
-  userId: string;
+  userId?: string;
+  imageId: string;
+}
+
+export interface addReportedTypes {
+  userId?: string;
   imageId: string;
 }
 

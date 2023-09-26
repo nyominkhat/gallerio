@@ -1,5 +1,5 @@
 import React from "react";
-import { MoreHorizontal } from "lucide-react";
+import { Loader2, MoreHorizontal } from "lucide-react";
 
 import {
   DropdownMenu,
@@ -9,11 +9,23 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { Button } from "./ui/button";
 
+import useAddReported from "@/hooks/report/useAddReported";
+
 interface ReportDropdownProps {
   imageId: string;
+  userId?: string;
 }
 
-const ReportDropdown = ({ imageId }: ReportDropdownProps) => {
+const ReportDropdown = ({ imageId, userId }: ReportDropdownProps) => {
+  const { mutate, isLoading } = useAddReported();
+
+  const report = () => {
+    mutate({
+      userId,
+      imageId,
+    });
+  };
+
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
@@ -23,11 +35,8 @@ const ReportDropdown = ({ imageId }: ReportDropdownProps) => {
       </DropdownMenuTrigger>
       <DropdownMenuContent className="w-40 z-[66666]">
         <DropdownMenuItem
-          onClick={() => {
-            // router.push("/setting");
-            console.log("report");
-          }}
-          className="block text-xs font-normal text-red-600 focus:text-red-400 cursor-pointer w-full px-2 py-3 transition-all"
+          onClick={report}
+          className="flex items-center text-xs font-normal  text-red-600 focus:text-red-400 cursor-pointer w-full px-2 py-3 transition-all"
         >
           Report
         </DropdownMenuItem>

@@ -82,9 +82,7 @@ const ImageDetailPage = ({ params }: ImageDetailPageProps) => {
         </div>
 
         <div className="flex items-center gap-4">
-          {data.userId === session?.user.id ? (
-            <ImageEditButton />
-          ) : (
+          {data.userId === session?.user.id ? null : (
             <LikeButton
               imageId={data.id}
               data={data}
@@ -147,7 +145,9 @@ const ImageDetailPage = ({ params }: ImageDetailPageProps) => {
 
           <SocialShareDropdown imageId={data.id} />
 
-          {data.userId !== session?.user.id && <ReportDropdown imageId={``} />}
+          {data.userId !== session?.user.id && (
+            <ReportDropdown imageId={data.id} userId={session?.user.id} />
+          )}
         </div>
       </footer>
 

@@ -117,9 +117,8 @@ const ImageModal = ({ params }: ImageModalPageProps) => {
             </div>
 
             <div className="flex items-center gap-4">
-              {data.userId === session?.user.id ? (
-                <ImageEditButton />
-              ) : (
+              {data.userId === session?.user.id ? // <ImageEditButton />
+              null : (
                 <LikeButton
                   imageId={data.id}
                   css=""
@@ -190,7 +189,7 @@ const ImageModal = ({ params }: ImageModalPageProps) => {
               <SocialShareDropdown imageId={data.id} />
 
               {data.userId !== session?.user.id && (
-                <ReportDropdown imageId={``} />
+                <ReportDropdown imageId={data.id} userId={session?.user.id} />
               )}
             </div>
           </footer>

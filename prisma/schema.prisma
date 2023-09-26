@@ -53,6 +53,8 @@ model User {
   file Image[]
   likeImages Like[]
 
+  reportedImages Report[]
+
   createdAt      DateTime   @default(now())
   updatedAt      DateTime   @updatedAt
 }
@@ -65,6 +67,8 @@ model Image {
 
   userId String
   user      User     @relation(fields: [userId], references: [id] , onDelete:  Cascade)
+
+  reportBy Report[]
 
   likeBy Like[]
 
@@ -87,4 +91,17 @@ model Like {
   updatedAt     DateTime  @updatedAt 
 
   @@unique([userId, imageId])
+}
+
+model Report {
+  id String @id @default(cuid())
+
+  userId String
+  user User @relation(fields: [userId] , references: [id] , onDelete: Cascade)
+
+  imageId String
+  image Image @relation(fields: [imageId] , references: [id] , onDelete: Cascade)
+
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt 
 }

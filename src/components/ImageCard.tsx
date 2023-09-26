@@ -81,9 +81,10 @@ const ImageCard = ({
           <p className="text-white text-xs">{data.user.name}</p>
         </div>
 
-        {data.userId === session?.user.id ? (
-          <ImageEditButton css="absolute top-4 right-4 group-hover:opacity-100 opacity-0 transition-all duration-500" />
-        ) : (
+        {data.userId ===
+        session?.user
+          .id ? // <ImageEditButton css="absolute top-4 right-4 group-hover:opacity-100 opacity-0 transition-all duration-500" />
+        null : (
           <LikeButton
             imageId={data.id}
             data={data}
