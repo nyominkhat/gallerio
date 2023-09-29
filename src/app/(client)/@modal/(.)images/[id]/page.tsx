@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { CalendarDays, Download, Frame, Heart } from "lucide-react";
@@ -51,6 +51,28 @@ const ImageModal = ({ params }: ImageModalPageProps) => {
       router.back();
     }
   };
+
+  const handleKeyDown = useCallback(
+    (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        router.back();
+      }
+    },
+    [router]
+  );
+
+  // Escape key down
+  useEffect(() => {
+    const handleKeyDownEvent = (e: KeyboardEvent) => {
+      handleKeyDown(e);
+    };
+
+    document.addEventListener("keydown", handleKeyDownEvent);
+
+    return () => {
+      document.removeEventListener("keydown", handleKeyDownEvent);
+    };
+  }, [handleKeyDown]);
 
   // stop scrolling body
   useEffect(() => {
@@ -117,8 +139,7 @@ const ImageModal = ({ params }: ImageModalPageProps) => {
             </div>
 
             <div className="flex items-center gap-4">
-              {data.userId === session?.user.id ? // <ImageEditButton />
-              null : (
+              {data.userId === session?.user.id ? null : ( // <ImageEditButton />
                 <LikeButton
                   imageId={data.id}
                   css=""
