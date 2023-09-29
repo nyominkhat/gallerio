@@ -87,11 +87,13 @@ const ProfileLayoutProvider = ({ children, userId }: LayoutProps) => {
           />
         </figure>
 
-        <ImageUploadButton
-          onChange={(value) => onUpload(value)}
-          css="absolute right-10 bottom-6"
-          text="Change cover"
-        />
+        {userId === session?.user.id && (
+          <ImageUploadButton
+            onChange={(value) => onUpload(value)}
+            css="absolute right-10 bottom-6"
+            text="Change cover"
+          />
+        )}
 
         <Avatar className="cursor-pointer w-24 h-24 absolute left-10 -bottom-12 border-2">
           <AvatarImage
