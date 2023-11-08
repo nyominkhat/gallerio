@@ -1,7 +1,7 @@
 # Gallerio
 
 
-### [Demo of poke](https://gallerio-gamma.vercel.app)
+### [Demo](https://gallerio-gamma.vercel.app)
 
 ![Tux, the Linux mascot](https://res.cloudinary.com/nyominkhat/image/upload/v1699454994/screencapture-gallerio-gamma-vercel-app-signin-2023-11-08-21_19_11_rdvttk.png)
 
