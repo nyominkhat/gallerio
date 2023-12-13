@@ -111,38 +111,38 @@ const ImageModal = ({ params }: ImageModalPageProps) => {
       {/* modal box */}
       <div
         onClick={(e) => e.stopPropagation()}
-        className="w-full lg:px-40 lg:pt-5 lg:pb-24 relative pointer-events-none cursor-auto min-h-full flex flex-col justify-between"
+        className='xl:px-36 lg:px-32 lg:pt-5 lg:pb-24 relative pointer-events-none cursor-auto sm:min-h-full flex flex-col justify-between h-auto'
       >
-        <div className="pointer-events-auto w-full mx-auto my-auto bg-white rounded-sm space-y-10">
+        <div className='pointer-events-auto w-full mx-auto my-auto bg-white rounded-sm space-y-10'>
           {/* header */}
-          <header className="p-6 flex items-center justify-between sticky top-0 left-0 bg-inherit rounded-t-sm z-50">
+          <header className='p-6 flex items-center justify-between sticky top-0 left-0 bg-inherit rounded-t-sm z-50'>
             <div
               onClick={(e) => {
                 e.stopPropagation();
                 router.replace(`/profile/${data.userId}`);
-                window.location.reload();
-                return null;
+                // console.log("gg");
+                // window.location.reload();
               }}
-              className="cursor-pointer flex items-center gap-2 transition-all duration-500"
+              className='cursor-pointer flex items-center gap-2 transition-all duration-500'
             >
-              <Avatar className="cursor-pointer">
+              <Avatar className='cursor-pointer'>
                 <AvatarImage
                   src={
                     data.user.image ? data.user.image : "/black-profile.avif"
                   }
-                  alt="Avatar"
+                  alt='Avatar'
                 />
                 <AvatarFallback>Avatar</AvatarFallback>
               </Avatar>
 
-              <p className="text-sm text-slate-800">{data.user.name}</p>
+              <p className='text-sm text-slate-800'>{data.user.name}</p>
             </div>
 
-            <div className="flex items-center gap-4">
+            <div className='flex items-center gap-4'>
               {data.userId === session?.user.id ? null : ( // <ImageEditButton />
                 <LikeButton
                   imageId={data.id}
-                  css=""
+                  css=''
                   data={data}
                   refetch={refetch}
                 />
@@ -158,7 +158,7 @@ const ImageModal = ({ params }: ImageModalPageProps) => {
           </header>
 
           {/* image */}
-          <figure className="md:h-[70vh] md:min-h-[70vh] h-[60vh] min-h-[60vh] flex items-center justify-center">
+          <figure className='md:h-[70vh] md:min-h-[70vh] h-[60vh] min-h-[60vh] flex items-center justify-center'>
             <Image
               onClick={() => {
                 setViewImage(true);
@@ -168,7 +168,7 @@ const ImageModal = ({ params }: ImageModalPageProps) => {
               src={data.url}
               width={"1000"}
               height={"1000"}
-              loading="lazy"
+              loading='lazy'
               quality={100}
               className={`cursor-zoom-in blur-sm transition-all duration-700 md:w-auto md:h-full w-full h-auto`}
               onLoadingComplete={(image) => image.classList.remove("blur-sm")}
@@ -176,33 +176,33 @@ const ImageModal = ({ params }: ImageModalPageProps) => {
           </figure>
 
           {/* footer */}
-          <footer className="p-6 flex items-baseline justify-between">
-            <div className="space-y-3">
-              <p className="text-xs text-slate-600 flex items-center gap-1">
+          <footer className='p-6 flex items-baseline justify-between sm:flex-row flex-col gap-4'>
+            <div className='space-y-3'>
+              <p className='text-xs text-slate-600 flex items-center gap-1'>
                 <CalendarDays size={18} />
                 Published at {format(new Date(data.updatedAt), "PP")}
               </p>
 
-              <p className="text-xs text-slate-600 flex items-center gap-1">
+              <p className='text-xs text-slate-600 flex items-center gap-1'>
                 <Frame size={18} />
                 {data.tag || "_"}
               </p>
 
-              <p className="text-xs text-slate-600 flex items-center gap-1">
+              <p className='text-xs text-slate-600 flex items-center gap-1'>
                 <Heart
                   size={18}
                   fill={data.isLiked ? "#ef4444" : "white"}
                   stroke={data.isLiked ? "#ef4444" : "black"}
                 />
                 Like By{" "}
-                <span className="underline text-slate-800">
+                <span className='underline text-slate-800'>
                   {likeUserCount}
                 </span>
               </p>
             </div>
 
             {/* delete & share & report btns */}
-            <div className="flex items-center gap-4">
+            <div className='flex items-center gap-4'>
               {session?.user.id === data.userId && (
                 <DeleteButton imageId={data.id} />
               )}
