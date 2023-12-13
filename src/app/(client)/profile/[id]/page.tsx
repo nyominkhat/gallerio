@@ -33,7 +33,7 @@ const Profile = ({ params }: ProfileProps) => {
   });
 
   return (
-    <section className="container">
+    <section className='container'>
       <ImageSection
         data={data}
         isLoading={isLoading}
@@ -41,6 +41,7 @@ const Profile = ({ params }: ProfileProps) => {
         isFetchingNextPage={isFetchingNextPage}
         hasNextPage={hasNextPage}
         refetch={refetch}
+        noMoreText='No more data here.'
       />
     </section>
   );

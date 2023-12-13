@@ -19,6 +19,7 @@ interface ImageSectionProps {
   isFetchingNextPage: boolean;
   refetch: () => void;
   isLoading: boolean;
+  noMoreText?: string;
 }
 
 const ImageSection = ({
@@ -28,6 +29,7 @@ const ImageSection = ({
   isFetchingNextPage,
   refetch,
   isLoading,
+  noMoreText,
 }: ImageSectionProps) => {
   const { ref, inView } = useInView();
 
@@ -42,13 +44,13 @@ const ImageSection = ({
   }
 
   return (
-    <section className="flex flex-col relative justify-between w-full">
+    <section className='flex flex-col relative justify-between w-full'>
       {/* {data && <div className="absolute -left-20">{data.pages.length}</div>} */}
 
       <Masonry
         breakpointCols={breakpointColumnsObj}
-        className="masonry-grid"
-        columnClassName="masonry-grid_column"
+        className='masonry-grid'
+        columnClassName='masonry-grid_column'
       >
         {data &&
           data.pages.map((page: any) =>
@@ -59,14 +61,18 @@ const ImageSection = ({
       </Masonry>
 
       {/* fetch data */}
-      <div className="absolute bottom-1/3 invisible" ref={ref}>
+      <div className='absolute bottom-1/3 invisible' ref={ref}>
         fetch more
       </div>
 
       {data && (isFetchingNextPage || hasNextPage) && (
-        <div className="py-10 flex items-center justify-center">
-          <Loader2 size={30} className="animate-spin" />
+        <div className='py-10 flex items-center justify-center'>
+          <Loader2 size={30} className='animate-spin' />
         </div>
+      )}
+
+      {!isLoading && !hasNextPage && (
+        <p className='text-sm font-semibold text-center'>{noMoreText}</p>
       )}
     </section>
   );

@@ -37,7 +37,7 @@ const Home = () => {
   }, [data, router]);
 
   return (
-    <div className="h-full flex container relative">
+    <div className='h-full container relative'>
       <ImageSection
         data={data}
         isLoading={isLoading}
@@ -45,6 +45,7 @@ const Home = () => {
         isFetchingNextPage={isFetchingNextPage}
         hasNextPage={hasNextPage}
         refetch={refetch}
+        noMoreText='No more data here.Only some lonely beings.'
       />
     </div>
   );

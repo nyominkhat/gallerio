@@ -23,7 +23,7 @@ const Likes = () => {
   });
 
   return (
-    <section className="container">
+    <section className='container'>
       <ImageSection
         data={data}
         isLoading={isLoading}
@@ -31,6 +31,7 @@ const Likes = () => {
         isFetchingNextPage={isFetchingNextPage}
         hasNextPage={hasNextPage}
         refetch={refetch}
+        noMoreText='No more data here.'
       />
     </section>
   );
