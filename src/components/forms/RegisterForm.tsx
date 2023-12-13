@@ -34,12 +34,12 @@ const registerSchema = z
       .min(8, "Password must be at least 8 characters long.")
       .refine((value) => {
         const hasUpperCase = /[A-Z]/.test(value);
-        const hasLowerCase = /[a-z]/.test(value);
-        const hasNumber = /\d/.test(value);
+        // const hasLowerCase = /[a-z]/.test(value);
+        // const hasNumber = /\d/.test(value);
         const hasSpecialCharacter = /[!@#$%^&*()_+[\]{};':"\\|,.<>/?]/.test(
           value
         );
-        return hasUpperCase && hasLowerCase && hasNumber && hasSpecialCharacter;
+        return hasUpperCase && hasSpecialCharacter;
       }, "Not a strong password!"),
     confirmPassword: z.string(),
   })
@@ -83,21 +83,21 @@ const RegisterForm = () => {
     <Form {...form}>
       <form
         onSubmit={form.handleSubmit(onSubmit)}
-        className="flex flex-col items-center justify-center space-y-8 lg:w-1/2 md:w-2/3 w-full px-4"
+        className='flex flex-col items-center justify-center space-y-8 lg:w-1/2 md:w-2/3 w-full px-4'
       >
-        <h2 className="text-3xl font-semibold lg:w-1/2 md:w-2/3 w-full">
+        <h2 className='text-3xl font-semibold lg:w-1/2 md:w-2/3 w-full'>
           Register here
         </h2>
 
-        <div className="flex flex-col items-center w-full gap-6">
+        <div className='flex flex-col items-center w-full gap-6'>
           <FormField
             control={form.control}
-            name="name"
+            name='name'
             render={() => (
-              <FormItem className="lg:w-1/2 md:w-2/3 w-full">
-                <FormLabel className="cursor-pointer">Name</FormLabel>
+              <FormItem className='lg:w-1/2 md:w-2/3 w-full'>
+                <FormLabel className='cursor-pointer'>Name</FormLabel>
                 <FormControl>
-                  <Input placeholder="Name" {...form.register("name")} />
+                  <Input placeholder='Name' {...form.register("name")} />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -106,12 +106,12 @@ const RegisterForm = () => {
 
           <FormField
             control={form.control}
-            name="email"
+            name='email'
             render={() => (
-              <FormItem className="lg:w-1/2 md:w-2/3 w-full">
-                <FormLabel className="cursor-pointer">Email</FormLabel>
+              <FormItem className='lg:w-1/2 md:w-2/3 w-full'>
+                <FormLabel className='cursor-pointer'>Email</FormLabel>
                 <FormControl>
-                  <Input placeholder="Email" {...form.register("email")} />
+                  <Input placeholder='Email' {...form.register("email")} />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -120,14 +120,14 @@ const RegisterForm = () => {
 
           <FormField
             control={form.control}
-            name="password"
+            name='password'
             render={() => (
-              <FormItem className="lg:w-1/2 md:w-2/3 w-full">
-                <FormLabel className="cursor-pointer">Password</FormLabel>
+              <FormItem className='lg:w-1/2 md:w-2/3 w-full'>
+                <FormLabel className='cursor-pointer'>Password</FormLabel>
                 <FormControl>
                   <Input
-                    type="password"
-                    placeholder="Password"
+                    type='password'
+                    placeholder='Password'
                     {...form.register("password")}
                   />
                 </FormControl>
@@ -138,16 +138,16 @@ const RegisterForm = () => {
 
           <FormField
             control={form.control}
-            name="confirmPassword"
+            name='confirmPassword'
             render={() => (
-              <FormItem className="lg:w-1/2 md:w-2/3 w-full">
-                <FormLabel className="cursor-pointer">
+              <FormItem className='lg:w-1/2 md:w-2/3 w-full'>
+                <FormLabel className='cursor-pointer'>
                   Confirm password
                 </FormLabel>
                 <FormControl>
                   <Input
-                    type="password"
-                    placeholder="Confirm password"
+                    type='password'
+                    placeholder='Confirm password'
                     {...form.register("confirmPassword")}
                   />
                 </FormControl>
@@ -156,19 +156,19 @@ const RegisterForm = () => {
             )}
           />
 
-          <div className="space-y-2 lg:w-1/2 md:w-2/3 w-full">
-            <Button type="submit" className="flex items-center w-full gap-2">
+          <div className='space-y-2 lg:w-1/2 md:w-2/3 w-full'>
+            <Button type='submit' className='flex items-center w-full gap-2'>
               {isLoading ? (
-                <Loader2 className="w-4 h-4 mr-2 animate-spin" />
+                <Loader2 className='w-4 h-4 mr-2 animate-spin' />
               ) : null}
               {isLoading ? "Registering" : " Register"}
             </Button>
           </div>
 
-          <div className="flex items-center gap-2 text-sm lg:w-1/2 md:w-2/3 w-full">
+          <div className='flex items-center gap-2 text-sm lg:w-1/2 md:w-2/3 w-full'>
             <p>Already have an account?</p>
             <Link
-              className="text-blue-800 underline transition-all hover:text-blue-600"
+              className='text-blue-800 underline transition-all hover:text-blue-600'
               href={"/signin"}
             >
               Login here!
