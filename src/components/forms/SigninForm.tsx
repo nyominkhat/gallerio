@@ -7,6 +7,7 @@ import * as z from "zod";
 import { useForm } from "react-hook-form";
 import { signIn } from "next-auth/react";
 import { Github, Loader2 } from "lucide-react";
+import { FcGoogle } from "react-icons/fc";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 
@@ -69,21 +70,21 @@ export const SigninForm = () => {
     <Form {...form}>
       <form
         onSubmit={form.handleSubmit(onSubmit)}
-        className="flex flex-col items-center justify-center space-y-8 lg:w-1/2 md:w-2/3 w-full px-4"
+        className='flex flex-col items-center justify-center space-y-8 lg:w-1/2 md:w-2/3 w-full px-4'
       >
-        <h2 className="text-3xl font-semibold lg:w-1/2 md:w-2/3 w-full">
+        <h2 className='text-3xl font-semibold lg:w-1/2 md:w-2/3 w-full'>
           Hello ! Welcome Back
         </h2>
 
-        <div className="flex flex-col items-center w-full gap-4">
+        <div className='flex flex-col items-center w-full gap-4'>
           <FormField
             control={form.control}
-            name="email"
+            name='email'
             render={() => (
-              <FormItem className=" lg:w-1/2 md:w-2/3 w-full">
-                <FormLabel className="cursor-pointer">Email</FormLabel>
+              <FormItem className=' lg:w-1/2 md:w-2/3 w-full'>
+                <FormLabel className='cursor-pointer'>Email</FormLabel>
                 <FormControl>
-                  <Input placeholder="Email" {...form.register("email")} />
+                  <Input placeholder='Email' {...form.register("email")} />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -92,14 +93,14 @@ export const SigninForm = () => {
 
           <FormField
             control={form.control}
-            name="password"
+            name='password'
             render={() => (
-              <FormItem className=" lg:w-1/2 md:w-2/3 w-full">
-                <FormLabel className="cursor-pointer">Password</FormLabel>
+              <FormItem className=' lg:w-1/2 md:w-2/3 w-full'>
+                <FormLabel className='cursor-pointer'>Password</FormLabel>
                 <FormControl>
                   <Input
-                    type="password"
-                    placeholder="Password"
+                    type='password'
+                    placeholder='Password'
                     {...form.register("password")}
                   />
                 </FormControl>
@@ -109,31 +110,45 @@ export const SigninForm = () => {
           />
         </div>
 
-        <div className=" lg:w-1/2 md:w-2/3 w-full">
-          <Button className="w-full" type="submit">
-            {loading ? <Loader2 className="w-4 h-4 mr-2 animate-spin" /> : null}
+        <div className=' lg:w-1/2 md:w-2/3 w-full'>
+          <Button className='w-full' type='submit'>
+            {loading ? <Loader2 className='w-4 h-4 mr-2 animate-spin' /> : null}
             {loading ? "Logging" : "Login"}
           </Button>
         </div>
 
-        <div className="flex items-center gap-2 text-sm lg:w-1/2 md:w-2/3 w-full">
+        <div className='flex items-center gap-2 text-sm lg:w-1/2 md:w-2/3 w-full'>
           <p>Don't have an account?</p>
           <Link
-            className="text-blue-800 underline transition-all hover:text-blue-600"
+            className='text-blue-800 underline transition-all hover:text-blue-600'
             href={"/register"}
           >
             Create an account!
           </Link>
         </div>
 
-        <Separator className=" lg:w-1/2 md:w-2/3 w-full" />
+        <Separator className=' lg:w-1/2 md:w-2/3 w-full' />
 
-        <div className="space-y-2 lg:w-1/2 md:w-2/3 w-full">
-          <p className="w-full text-center">or</p>
+        <div className='space-y-2 lg:w-1/2 md:w-2/3 w-full'>
+          <p className='w-full text-center'>or</p>
 
           <Button
-            type="button"
-            className="flex items-center w-full gap-2"
+            type='button'
+            className='flex items-center w-full gap-2'
+            variant={"outline"}
+            onClick={() =>
+              signIn("google", {
+                redirect: false,
+              })
+            }
+          >
+            <FcGoogle size={18} />
+            Sign in with Google
+          </Button>
+
+          <Button
+            type='button'
+            className='flex items-center w-full gap-2'
             onClick={() =>
               signIn("github", {
                 redirect: false,
